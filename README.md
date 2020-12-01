@@ -9,5 +9,5 @@ Tabela de Métodos:
 | Gauss | 🛠 |
 | Gauss-Seidel | ❌ |
 | Newton-Raphson | ❌ |
-| Mínimos quadrados | ❌ |
-| Lagrange | ❌ |
+| Mínimos quadrados | 🛠 |
+| Lagrange | ✔️ |
