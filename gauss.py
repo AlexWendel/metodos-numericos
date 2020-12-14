@@ -1,17 +1,17 @@
 
 #Dados da matriz
-A = [[1,1,1,1,1,15],[1,2,3,4,5,35],[1,3,6,10,15,70],[1,4,10,20,35,126],[1,5,15,35,70,210]]
-linhas = 5
-colunas = 6
+A = [[2,-2,0,-6],[1,-1,1,1],[0,3,-2,-5]]
+linhas = 3
+colunas = 4
 rounding = 6
 
-def printMatrice(matrice):
-    for i, item in enumerate(matrice):
+def printmatrix(matrix):
+    for i, item in enumerate(matrix):
         print(f"A[{i}]=", item)
 
 
-def getMultiplierCoeficient(column, endline, matrice):
-    pivot = matrice[column][column]
+def getMultiplierCoeficient(column, endline, matrix):
+    pivot = matrix[column][column]
     multipliers = []
     for i in range(0, endline):
         if i < column:
@@ -24,7 +24,7 @@ def getMultiplierCoeficient(column, endline, matrice):
     return multipliers
 
 
-def applyElimination(startline, endline, endcolumn, matrice, multipliers):
+def applyElimination(startline, endline, endcolumn, matrix, multipliers):
     for i in range(startline+1, endline):
         for j in range(startline, endcolumn):
             A[i][j] = round((multipliers[i]*A[startline][j] - A[i][j]), rounding)
@@ -32,13 +32,22 @@ def applyElimination(startline, endline, endcolumn, matrice, multipliers):
 
 
 print("Matriz inicial:")
-printMatrice(A)
+printmatrix(A)
 for i in range(0, linhas):
     multiplier = getMultiplierCoeficient(i, linhas, A)
     print(f"Multipliers Pivot {i}: {multiplier}")
     A = applyElimination(i, linhas, colunas, A, multiplier)
 print("Matriz final:")
-printMatrice(A)
+
+for j in range(0,linhas): #Matrix rearrangement if needed 
+    for k in range(0,colunas):
+        if j > k:
+            if A[j][k] != 0:
+                temp = A[j]
+                A[j]=A[j-1]
+                A[j-1]=temp
+
+printmatrix(A)
 
 solution = []
 for i in range(0, linhas-1):
