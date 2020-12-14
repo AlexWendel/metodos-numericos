@@ -17,7 +17,10 @@ def getMultiplierCoeficient(column, endline, matrice):
         if i < column:
             multipliers.append(0)
         else:
-            multipliers.append(round(A[i][column]/pivot, rounding))
+            try:
+                multipliers.append(round(A[i][column]/pivot, rounding))
+            except ZeroDivisionError:
+                multipliers.append(0)
     return multipliers
 
 
