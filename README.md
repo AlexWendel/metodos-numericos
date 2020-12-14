@@ -11,3 +11,5 @@ Tabela de Métodos:
 | Newton-Raphson | ❌ |
 | Mínimos quadrados | 🛠 |
 | Lagrange | ✔️ |
+| Diferenças finitas | ❌ |
+| Regras de Simpson | ❌ |
