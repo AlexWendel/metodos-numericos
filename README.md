@@ -7,7 +7,7 @@ Tabela de Métodos:
 | Bisseção | ✔️ |
 | Secante | ✔️ |
 | Gauss | ✔️ |
-| Gauss-Seidel | ❌ |
+| Gauss-Seidel | ✔️ |
 | Newton-Raphson | ❌ |
 | Mínimos quadrados | 🛠 |
 | Lagrange | ✔️ |
