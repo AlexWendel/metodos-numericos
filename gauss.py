@@ -1,8 +1,9 @@
 
 #Dados da matriz
-A = [[2,-2,0,-6],[1,-1,1,1],[0,3,-2,-5]]
-linhas = 3
-colunas = 4
+A = input("Digite a matriz: Ex:[[1,2,3],[4,5,6]]\n")
+A = eval(A)
+linhas = len(A)
+colunas = len(A[0])
 rounding = 6
 
 def printmatrix(matrix):
