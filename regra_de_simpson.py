@@ -19,16 +19,31 @@ def calc_tresoitavos(h, a, x2, x3, b):
 
 #dados = []
 
-a = input("Defina o começo do intervalo inicial: ")
-b = input("Defina o fim do intervalo inicial: ")
+
+a = float(input("Defina o começo do intervalo inicial: "))
+b = float(input("Defina o fim do intervalo inicial: "))
 print("intervalo inicial definido como [",a,";",b,"]")
-n = input("defina o numero de seguimentos n: ")
+n = float(input("defina o numero de seguimentos n: "))
 
 h = (b - a)/n
 
-subintervalos = []
-subintervalos[0] = 0
-subintervalos[1] = h
-for i in range(2,n):
-   subintervalos[i] = subintervalos[1]*i
+subint = [0]*5
+print(subint)
+
+for i in range(1,len(subint)):
+    subint[i] = h*i    
+
+
+print(subint)
+
+# subintervalos = {
+#     0 : h,
+#     h : h*2,
+#     h*2 : h*3,
+#     h*3 : h*4,
+#     h*4 : h*5
+# }
+
+
+
 
