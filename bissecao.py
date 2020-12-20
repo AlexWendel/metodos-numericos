@@ -5,24 +5,7 @@ tol_target = 0.002  # Tolerância
 
 n = 0
 tol = 100000000
-round
-def custom_round(value,digits):
-    string = str(value)
-    preSize = 0
-    fullSize = 0
-    
-    for x in string:
-        preSize+=1    
-        if x == ".":
-            break
-    
-    for x in string:
-        fullSize+=1
-    
-    if digits>fullSize:
-        return value
 
-    string[preSize+digits+1]
 def calc_func(x, p=False):
     if p:
         print(x * math.log10(x)-1)  # Equação
