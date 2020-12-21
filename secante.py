@@ -1,31 +1,42 @@
 import math
+from utils import *
 
-def calc(x1, fx1, x0, fx0):
-  return x1 - ( (fx1 * (x0 - x1)) / (fx0 - fx1))
+error = None # Erro inicial fictício
+eq = input("Digite a equaçao: ")#input("Digite a equação:") # math.sin(x) - pow(x, 2)
+x0 = float(eval(input("Digite o X0:"))) # 2.3
+x1 = float(eval(input("Digite o X1:"))) # 2.7
+error_target = float(input("Digite o erro:")) # 10³
+n = 0 # Número de iterações realizadas
+
+def calc_next(xi, fxi, x0, fx0):
+  return xi - ((fxi * (x0 - xi)) / (fx0 - fxi))
 
 def calc_func(x):
-  return math.sin(x) - pow(x, 2)
+  return eval(eq)
 
-def calc_err(x1, x0):
-  return abs((x1-x0) / x0)
-  
-error = 10000
-x0 = math.pi/2
-x1 = math.pi/4
+def calc_err(xi, x0):
+  return abs((x0-xi)/xi)
 
-while error > 0.001:
+tabela = "---------------------------- Tabela -----------------------------\n"
+while not error or (error > error_target):
+
+  fx0 = calc_func(x0)  
   fx1 = calc_func(x1)
-  fx0 = calc_func(x0)
+  next_x = calc_next(x1, fx1, x0, fx0)
 
-  print("=============================")
-  print(f"X0: {x0}")
-  print(f"X1: {x1}")  
-  print(f"FX0: {fx0}")
-  print(f"FX1: {fx1}")
-  next_x = calc(x1, fx1, x0, fx0)
-  error = calc_err(x1, x0)
-  print(f"Next X: {next_x}")
-  print(f"Erro: {error}")
+  table_row = f"| N: {n} | X{n}: {x0} | f(x{n}): {fx0} | ε: {(error if error else 'N/A')}\n"
+  # print(f"\nx0: {x0}  x1: {x1}")
+  # print(table_row)
+  tabela += table_row
+  tabela += "------------------------------------------------------------------\n"  
+
+  n += 1
+
+  if n != 0:
+    # print(f"Erro: ({x1}-{x0})/{x0}") 
+    error = calc_err(x0, x1)
 
   x0 = x1
   x1 = next_x
+
+print('\n', tabela)
