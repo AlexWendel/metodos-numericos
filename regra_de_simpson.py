@@ -78,11 +78,11 @@ elif resto2 == 0:
 
 else :
     print("o numero de subintervalos não é par e nem divisivel por 3,será resolvida com simpson composta")
-    simpUmTres = calc_umterco(h ,h * 0,h * 1,h * 2)
+    simpUmTres = calc_umterco(h ,subint[0], subint[1],subint[2]) + calc_umterco(h ,subint[2], subint[3],subint[4])
     print()
     print("simpson 1/3 : ",simpUmTres)
     print()
-    simpTresOito =  calc_tresoitavos(h, subint[2], subint[3],subint[4],subint[5])
+    simpTresOito =  calc_tresoitavos(h, subint[4], subint[5],subint[6],subint[7])
     print("simpson 3/8: ", simpTresOito)
     print()
     result =  simpUmTres + simpTresOito
