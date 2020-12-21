@@ -1,14 +1,15 @@
 # Método da bisseção
-
 import math
 
-tol = 100000000 # Tolerância inicial fictício
-a, b = (2, 3)  # Intervalo
+tol = 100000000 # Tolerância inicial fictícia
+eq = input("Digite a equação:") # x*math.log10(x)-1
+a = float(input("Digite o ponto A:")) # Ponto A do intervalo
+b = float(input("Digite o ponto B:")) # Ponto B do intervalo
 tol_target = 0.001  # Tolerância esperada
 n = 0 # Quantidade iterações realizadas
 
 def calc_func(x, p=False):
-    result = x * math.log10(x)-1
+    result = eval(eq)
     if p:
         print(result) 
     return result
@@ -41,21 +42,24 @@ def calc_new_range(a, b, xn, show=False):
 
 tabela = "------------------------- Tabela -------------------------\n"
 while True:
-    print(f"Interação: {n}")
+    print(f"\nIteração {n}:")
+
     xn = calc_medium(a, b)
     tol = calc_tol(a, b)
+    fxn = calc_func(xn)
+    table_row = f"N:{n} A:{a} B:{b} Xn: {xn} f(xn):{fxn} Tol:{tol}\n"
 
-    print(f'f({xn})= {xn} * log({xn})-1')  # Equação
+    print(table_row[:-2])
+    print(f"Xn = {xn}")
+    print(f"f(x)={eq.replace('x', str(xn))} = {fxn}")  # Equação
 
-    print('fxn=', end='')
-    fxn = calc_func(xn, True)
-    print(f"N: {n} A:{a} B:{b} Xn: {xn} f(xn): {fxn} Tol: {tol}")
-    tabela += f"N: {n} A:{a} B:{b} Xn: {xn} f(xn): {fxn} Tol: {tol}\n"
+    tabela += table_row    
     tabela += "------------------------------------------------------------\n"
 
     if tol <= tol_target:
+        print("TOLERÂNCIA ATINGIDA!")
         break
-
+    
     a, b = calc_new_range(a, b, xn)
     n += 1
 
