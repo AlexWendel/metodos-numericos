@@ -5,7 +5,7 @@ tol = 100000000 # Tolerância inicial fictícia
 eq = input("Digite a equação:") # x*math.log10(x)-1
 a = float(input("Digite o ponto A:")) # Ponto A do intervalo
 b = float(input("Digite o ponto B:")) # Ponto B do intervalo
-tol_target = 0.001  # Tolerância esperada
+tol_target = float(input("Digite a tolerância:"))  # Tolerância esperada
 n = 0 # Quantidade iterações realizadas
 
 def calc_func(x, p=False):
