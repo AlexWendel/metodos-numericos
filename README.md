@@ -12,4 +12,4 @@ Tabela de Métodos:
 | Mínimos quadrados | 🛠 |
 | Lagrange | ✔️ |
 | Diferenças finitas | ✔️ |
-| Regras de Simpson | ❌ |
+| Regras de Simpson | ✔️ |
