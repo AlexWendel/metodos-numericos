@@ -45,18 +45,19 @@ subint.append(end)
 
 
 if (n % 2 == 0):
-    print("Realizando operação por Simpson 1/3")
     # 1/3
+    print("Realizando operação por Simpson 1/3")
     result = 0
     m = 3
     for i in range(int(len(subint)/2)):
         a, ab, b = subint[i*2:i+m]
         result += calc_umterco(h, a, ab, b)
         m += 3
-    return result
+    print(result)
 
 if (n % 3 == 0):
     # 3/8
+    print("Realizando operação por Simpson 1/3")
     result = 0
     m = 4
     for i in range(int(len(subint)/3)):
