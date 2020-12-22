@@ -55,73 +55,40 @@ if (n % 2 == 0):
         m += 3
     print(result)
 
-if (n % 3 == 0):
+elif (n % 3 == 0):
+    print("Realizando operação por Simpson 3/8")
     # 3/8
     result = 0
     m = 4
     for i in range(int(len(subint)/3)):
         a, x2, x3, b = subint[i*3:i+m]
-        print(a)
         result += calc_tresoitavos(h, a , x2, x3, b)
         m += 4
     print(result)
 
-# print(calc_func(0))
-# #preenchendo o vetor com os subintervalos
-# for i in range(len(subint)):
-#     subint[i] = h*i    
+else:
+    print("Realizando operação por Simpson 1/3 e 3/8")
+    # 3/8 + 1/3
+    it_2 = (n % 2)
+    it_3 = (n % 3)
 
-# resto1 = (n) % 2
-# resto2 = (n) % 3
-# result = 0
+    # 1/3
+    sub = subint[:(2*it_2)+1]
+    result_0 = 0
+    m = 3
+    for i in range(int(len(sub)/2)):
+        a, ab, b = sub[i*2:i+m]
+        result_0 += calc_umterco(h, a, ab, b)
+        m += 3
 
-# print(" intervalos utilizados ")
-# for i in range(0,n):
-    
-#     print("  ",subint[i],"->",subint[i+1])
+    # 3/8
+    sub = subint[(2*it_2):(3*it_3)+1]
+    result_1 = 0
+    m = 4
+    for i in range(int(len(sub)/3)):
+        a, x2, x3, b = sub[i*3:i+m]
+        result_1 += calc_tresoitavos(h, a , x2, x3, b)
+        m += 4
 
-# print()
-
-# #verificando se o numero de subintervalos é par
-# if resto1 == 0 :
-#     print("o numero de subintervalos é par, será resolvida com simpson 1/3")
-    
-#     if n == 2:
-#         result = calc_umterco(h ,subint[0],subint[1],subint[2])
-#         print("O intervalo total é: ",result)
-#         print()
-#     elif n == 4:
-#         result = calc_umterco(h ,subint[0],subint[1],subint[2]) + calc_umterco(h ,subint[2],subint[3],subint[4])
-#         print("O intervalo total é: ",result)
-#         print()
-#     elif n == 6:
-#         result = calc_umterco(h ,subint[0],subint[1],subint[2]) + calc_umterco(h ,subint[2],subint[3],subint[4]) + calc_umterco(h ,subint[4],subint[5],subint[6]) 
-#         print("O intervalo total é: ",result)
-#         print()
-
-# #verificando se o numero de subintervalos é divisivel por 3
-# elif resto2 == 0:
-#     print("o numero de subintervalos é divisivel por 3, será resolvida com simpson 3/8")
-    
-#     if n == 3:
-#         result = calc_tresoitavos(h, subint[0], subint[1],subint[2],subint[3])
-#         print("o intervalo final é: ", result)
-#         print()
-#     elif n == 9:
-#         result = calc_tresoitavos(h, subint[0], subint[1],subint[2],subint[3]) + calc_tresoitavos(h, subint[3], subint[4],subint[5],subint[6]) + calc_tresoitavos(h, subint[6], subint[7],subint[8],subint[9])
-#         print("o intervalo final é: ", result)
-#         print()    
-
-# else :
-#     print("o numero de subintervalos não é par e nem divisivel por 3,será resolvida com simpson composta")
-#     simpUmTres = calc_umterco(h ,h * 0,h * 1,h * 2)
-#     print()
-#     print("simpson 1/3 : ",simpUmTres)
-#     print()
-#     simpTresOito =  calc_tresoitavos(h, subint[2], subint[3],subint[4],subint[5])
-#     print("simpson 3/8: ", simpTresOito)
-#     print()
-#     result =  simpUmTres + simpTresOito
-#     print("O intervalo total é: ",result)
-#     print()
-
+    # print(f"{result_0} + {result_1}")
+    print(f"Resultado: {result_0 + result_1}")
