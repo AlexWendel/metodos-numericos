@@ -1,4 +1,5 @@
 import math
+<<<<<<< HEAD
 from sympy import *
 
 x,y = symbols('x y')
@@ -37,13 +38,25 @@ print("dv/dx = ", dv_x(x,y))
 print("dv/dy = ", dv_y(x,y))
 
 divisor = ((du_x(x,y) * dv_y(x,y)) - (du_y(x,y) * dv_x(x,y)))
+=======
+import sympy
+>>>>>>> 2288eacf61f421c54309c583f9d70cd5bacecdd9
 
-def calc_x(x, u, v, dv_y, dv_x, du_y, du_x):
-    dividendo = ((u * dv_y) - (v * du_y))
-    
-    return x - (dividendo/divisor)
+# def calc_x(x, u, v, dv_y, dv_x, du_y, du_x):
+#     dividendo = ((u * dv_y) - (v * du_y))
+#     divisor = ((du_x * dv_y) - (du_y * dv_x))
+#     return x - (dividendo/divisor)
 
-def calc_y(y, u, v, dv_y, dv_x, du_y, du_x):
-    dividendo = ((v * du_x) - (u * dv_x))
-    # divisor = ((du_x * dv_y) - (du_y * dv_x))
-    return y - (dividendo/divisor)
+# def calc_y(y, u, v, dv_y, dv_x, du_y, du_x):
+#     dividendo = ((v * du_x) - (u * dv_x))
+#     divisor = ((du_x * dv_y) - (du_y * dv_x))
+#     return y - (dividendo/divisor)
+
+# def u(x,y):
+#     return (x**2) + x*y - 10
+
+# def v(x,y):
+#     return y + 3*x*(y**2) - 57
+
+# x = float(input("x: "))
+# y = float(input("y: "))
