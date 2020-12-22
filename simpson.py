@@ -53,7 +53,7 @@ if (n % 2 == 0):
         a, ab, b = subint[i*2:i+m]
         result += calc_umterco(h, a, ab, b)
         m += 3
-    return result
+    print(result)
 
 if (n % 3 == 0):
     # 3/8
