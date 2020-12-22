@@ -14,8 +14,8 @@ def calc_fn():
     return 
 
 # TODO: Implementar checagem de erro real
-def calc_error(result):
-    return 
+def calc_error(real, result):
+    return (real-result)/real
 
 table_matrix = [
     [1,0],
