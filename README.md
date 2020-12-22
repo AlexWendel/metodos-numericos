@@ -9,7 +9,7 @@ Tabela de Métodos:
 | Gauss | ✔️ |
 | Gauss-Seidel | ✔️ |
 | Newton-Raphson | ✔️ |
-| Mínimos quadrados | 🛠 |
+| Mínimos quadrados | ✔️ |
 | Lagrange | ✔️ |
 | Diferenças finitas | ✔️ |
 | Regras de Simpson | ✔️ |
