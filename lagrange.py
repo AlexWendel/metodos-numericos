@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import sys
-from utils import get_partial_eq
+from utils import *
 
 # EQUAÇÕES HARDCODED
 fn_eq = "li * y_i"

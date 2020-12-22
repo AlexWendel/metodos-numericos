@@ -1,6 +1,7 @@
 import math
 import numpy as np
 from numpy import linalg
+from utils import *
 
 points = int(input("Quantidade de pontos: "))
 degree = int(input("Digite o grau do polinômio: "))

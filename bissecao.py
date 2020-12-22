@@ -1,5 +1,6 @@
 # Método da bisseção
 import math
+from utils import *
 
 tol = 100000000 # Tolerância inicial fictícia
 eq = input("Digite a equação:") # x*math.log10(x)-1
