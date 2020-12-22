@@ -8,8 +8,8 @@ Tabela de Métodos:
 | Secante | ✔️ |
 | Gauss | ✔️ |
 | Gauss-Seidel | ✔️ |
-| Newton-Raphson | ❌ |
+| Newton-Raphson | ✔️ |
 | Mínimos quadrados | 🛠 |
 | Lagrange | ✔️ |
 | Diferenças finitas | ✔️ |
-| Regras de Simpson | ❌ |
+| Regras de Simpson | ✔️ |
