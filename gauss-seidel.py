@@ -10,7 +10,7 @@ linhas = len(A)
 colunas = len(A[0])
 rounding = 6
 erro = 100000000
-interacoes = 0
+iteracoes = 0
 
 def printmatrix(matrix):
     for i, item in enumerate(matrix):
@@ -36,10 +36,10 @@ def getError(newSolutions):
 
 printmatrix(A)
 while(erro >= ErroMin):
-    print('\nInteração: '+str(interacoes))
+    print('\nInteração: '+str(iteracoes))
     newSolutions = applySolutions(VetSol)
     print("Soluções: "+str(newSolutions))
     erro = getError(newSolutions)
     print("Erro: "+ str(erro))
     VetSol = newSolutions.copy()
-    interacoes+=1
+    iteracoes+=1
