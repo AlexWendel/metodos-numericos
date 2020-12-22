@@ -1,52 +1,35 @@
-from utils import get_partial_eq
+import math
+import numpy as np
+from numpy import linalg
 
-# HARDCODED EQUATION
-line_equation = "a + bx"
+points = int(input("Quantidade de pontos: "))
+degree = int(input("Digite o grau do polinômio: "))
 
-# Para uma linha
-a1 = "((n * sumxy) - (sum_x * sum_y)) / ((n * sum_sqrtx) - pow(sum_x, 2))"
-a0 = "((sum_sqrtx * sum_y) - (sumxy * sum_x)) / ((n * sum_sqrtx) - pow(sum_x, 2))"
+x, y = np.zeros(points), np.zeros(points)
+for i in range(points):
+    x[i] = float(input("x" + str(i) +" = "))
+    y[i] = float(input("y" + str(i) +" = "))
 
-# TODO: IMPLEMENTAR TUDO
-# Aqui temos um fodendo problema, este método varia de acordo com a equação necessária, sendo uma reta a mais simples.
-table_matrix = {
-    1: 0.5,
-    2: 2.5,
-    3: 2.0,
-    4: 4.0,
-    5: 3.5,
-    6: 6.0,
-    7: 5.5
-}
+values = np.zeros((degree+1, points))
+for i in range(len(values)):
+    for j in range(points):
+        values[i][j] = math.pow(x[j], i)
 
-# Variaveis necessárias
-n = len(table_matrix) # Quantidade de itens
-sum_x = sum(table_matrix.keys()) # Soma de X da tabela
-sum_y = sum(table_matrix.values()) # Soma de Y da tabela
-sumxy = sum([x*y for x,y in table_matrix.items()]) # Soma da multiplicacao dos x por y
-sum_sqrtx = sum([pow(x,2) for x in table_matrix.keys()]) # Soma dos x's ao quadrado
-rounding = 6 # Casas decimais depois da vírgula
+print(f"------------------------- Matriz -------------------------")
+for i in values:
+    print(i)
+print("-----------------------------------------------------------\n")
 
-values = {
-    'n': n,
-    'sum_x': sum_x,
-    'sum_y': sum_y,
-    'sumxy': sumxy,
-    'sum_sqrtx': sum_sqrtx
-}
+A = np.zeros((degree+1, degree+1))
+B = np.zeros(degree+1)
+for i in range(len(A)):
+    for j in range(len(A)):
+        A[i][j] = values[i].dot(values[j])
+        B[i] = values[i].dot(y)
 
-def calc_line():
-    a0_equation = get_partial_eq(a0, values)
-    a1_equation = get_partial_eq(a1, values)
+for i, row in enumerate(A):
+    print(f"{row} = {B[i]}")
 
-    print(f"a0: {a0_equation}")
-    print(f"a1: {a1_equation}")
-
-    a1_result = round(eval(a0_equation), rounding)
-    a0_result = round(eval(a1_equation), rounding)
-
-    # Reconstruir a equacao da reta
-    line_result = get_partial_eq(line_equation, {'a': a0_result, 'b': a1_result})
-    print(f"f(x): {line_result}")
-
-print(calc_line)
+result = np.linalg.solve(A, B)
+result = [result[i] for i in range(len(result))]
+print(f"Resultado X: {result}")    
