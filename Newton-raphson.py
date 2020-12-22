@@ -31,7 +31,10 @@ def dv_x(x,y):
 def dv_y(x,y):
     return diff(v(x,y), y) 
 
-
+print("du/dx = ", du_x(x,y))
+print("du/dy = ", du_y(x,y))
+print("dv/dx = ", dv_x(x,y))
+print("dv/dy = ", dv_y(x,y))
 
 divisor = ((du_x(x,y) * dv_y(x,y)) - (du_y(x,y) * dv_x(x,y)))
 
