@@ -1,5 +1,4 @@
 import math
-<<<<<<< HEAD
 from sympy import *
 
 x,y = symbols('x y')
@@ -38,9 +37,6 @@ print("dv/dx = ", dv_x(x,y))
 print("dv/dy = ", dv_y(x,y))
 
 divisor = ((du_x(x,y) * dv_y(x,y)) - (du_y(x,y) * dv_x(x,y)))
-=======
-import sympy
->>>>>>> 2288eacf61f421c54309c583f9d70cd5bacecdd9
 
 # def calc_x(x, u, v, dv_y, dv_x, du_y, du_x):
 #     dividendo = ((u * dv_y) - (v * du_y))
